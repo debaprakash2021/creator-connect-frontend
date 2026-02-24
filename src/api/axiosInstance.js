@@ -12,7 +12,7 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       errorToast("Unauthorized request")
-      loginUser();
+      // loginUser();
       console.log("Unauthorized request");
     }
 
