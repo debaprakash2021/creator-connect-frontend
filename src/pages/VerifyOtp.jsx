@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { verifyOtp } from "../api/authApi";
 import { useAuth } from "../context/AuthContext";
@@ -16,9 +16,11 @@ const VerifyOtp = () => {
 
   const formData = location.state;
 
-  if (!formData) {
-    navigate("/signup");
-  }
+  useEffect(() => {
+    if (!formData) {
+      navigate("/signup");
+    }
+  }, [formData, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
